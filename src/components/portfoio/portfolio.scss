@@ -65,11 +65,11 @@
 
       &:hover {
         background-color: $mainColor;
-      }
 
-      img {
-        opacity: 0.2;
-        z-index: 0;
+        img {
+          opacity: 0.2;
+          z-index: 0;
+        }
       }
     }
   }
