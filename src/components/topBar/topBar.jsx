@@ -11,7 +11,7 @@ const TopBar = ({ menuOpen, setMenuOpen }) => {
   return (
     <div className={"topBar " + (menuOpen && "active")}>
       <div className="wrapper">
-        <div className="left">
+        {/* <div className="left">
           <a href="#intro" className="logo">
             genius.
           </a>
@@ -30,7 +30,7 @@ const TopBar = ({ menuOpen, setMenuOpen }) => {
             <FontAwesomeIcon icon={faPhoneSquare} className="icon" />
             <span>icon</span>
           </div>
-        </div>
+        </div> */}
         <div className="right">
           <div className="hamburger" onClick={()=> setMenuOpen(!menuOpen)}>
             <span className="line1"></span>

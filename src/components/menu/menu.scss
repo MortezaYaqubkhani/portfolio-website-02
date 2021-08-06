@@ -3,8 +3,9 @@
 .menu {
   width: 300px;
   height: 100vh;
-  background-color: $mainColor;
+  background-color: #00006b;
   position: fixed;
+  opacity: 0.6;
   top: 0;
   right: -300px;
   z-index: 2;
@@ -24,9 +25,9 @@
     list-style: none;
     font-size: 30px;
     font-weight: 300;
-    color: white;
+    color: #ffffff;
     width: 60%;
-    
+
     li {
       margin-bottom: 25px;
 
@@ -37,7 +38,7 @@
       }
 
       &:hover {
-          font-weight: 500;
+        font-weight: 600;
       }
     }
   }

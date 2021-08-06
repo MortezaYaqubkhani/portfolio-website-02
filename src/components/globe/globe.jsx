@@ -62,56 +62,88 @@ import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import * as queue from "queue";
 import * as topojson from "topojson";
+// import { useState } from 'react';
 
 const Globe = () => {
-  const svgRef = useRef();
-  const width = 960;
-  const height = 500;
-  const config = {
-    speed: 0.005,
-    verticalTilt: -30,
-    horizontalTilt: 0,
+  const [rotation, setRotation] = useState([0, 0, 0]);
+  const clickButton = () => {
+    setRotation([100, 130, 30]);
   };
-  let locations = [];
+  // {"latitude": 28.033886, "longitude": 1.659626}
+  const svgRef = useRef();
 
   useEffect(() => {
-    console.log(123);
-    const svg = d3
+    var diameter = 960 / 3,
+      radius = diameter / 2,
+      velocity = 0.01;
+
+    var projection = d3
+      .geoOrthographic()
+      .scale(radius - 2)
+      .translate([radius, radius])
+      .clipAngle(90)
+      .precision(0);
+
+    d3.select(svgRef.current)
+      .selectAll(".title")
+      .data(["λ", "φ", "γ"])
+      .enter()
+      .append("div")
+      .attr("class", "title")
+      .style("width", diameter + "px")
+      .text(function (d) {
+        return d;
+      });
+
+    var canvas = d3
       .select(svgRef.current)
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("fill", "rgb(65, 83, 83)");
+      .selectAll("canvas")
+      .data(d3.range(3))
+      .enter()
+      .append("canvas")
+      .datum(function () {
+        return this.getContext("2d");
+      })
+      .attr("width", diameter)
+      .attr("height", diameter);
 
-    const markerGroup = svg.append("g");
-    const projection = d3.geoOrthographic();
-    const initialScale = projection.scale();
-    const path = d3.geoPath().projection(projection);
-    const center = [width / 2, height / 2];
+    var path = d3.geoPath().projection(projection);
 
-    // function drawGlobe() {
     d3.json(
-      "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/world-110m.json"
-    ).then((worldData) => {
-      svg
-        .selectAll(".segment")
-        .data(topojson.feature(worldData, worldData.objects.countries).features)
-        .enter()
-        .append("path")
-        .attr("class", "segment")
-        .attr("d", path)
-        .style("stroke", "#888")
-        .style("stroke-width", "1px")
-        .style("fill", (d, i) => "#e5e5e5")
-        .style("opacity", ".6")
-        .on("mouseover", function (d, i) {
-          d3.select(this).style("fill", "rgb(60, 60, 60)");
-        });
-    });
-    // }
-  }, []);
+      "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/world-110m.json",
+      function (error, world) {
+        if (error) throw error;
 
-  return <div id="svg-globe" ref={svgRef}>fg</div>;
+        var land = topojson.feature(world, world.objects.land),
+          globe = { type: "Sphere" };
+
+        d3.timer(function (elapsed) {
+          var angle = velocity * elapsed;
+          canvas.each(function (context, i) {
+            var rotate = [0, 0, 0];
+            rotate[i] = angle;
+            projection.rotate(rotate);
+            context.clearRect(0, 0, diameter, diameter);
+            context.beginPath();
+            path.context(context)(land);
+            context.fill();
+            context.beginPath();
+            path(globe);
+            context.stroke();
+          });
+        });
+      }
+    );
+  });
+
+  return (
+    <div>
+      <div id="svg-globe" ref={svgRef}></div>
+      <button type="button" onClick={clickButton}>
+        Click
+      </button>
+    </div>
+  );
 };
 
 export default Globe;

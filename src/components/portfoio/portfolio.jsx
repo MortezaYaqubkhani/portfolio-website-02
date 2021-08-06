@@ -9,7 +9,7 @@ import {
   brandingPortfolio,
 } from "../portfolioData";
 
-const Portfolio = () => {
+const Portfolio = ({ menuOpen, setMenuOpen }) => {
   const [selected, setSelected] = useState("featured");
   const [data, setData] = useState([]);
   const list = [
@@ -43,6 +43,9 @@ const Portfolio = () => {
   }, [selected]);
   return (
     <div className="portfolio" id="portfolio">
+      
+
+      
       <h1>Portfolio</h1>
       <ul>
         {list.map((item) => (
@@ -57,14 +60,21 @@ const Portfolio = () => {
       <div className="container">
         {data.map((d) => (
           <div className="item" id={d.id}>
-            <img
-              src={d.img}
-              alt={d.title}
-            />
+            <img src={d.img} alt={d.title} />
             <h3>{d.title}</h3>
           </div>
         ))}
       </div>
+      <div
+          className={"right " + (menuOpen && "active")}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <div className="hamburger">
+            <span className="line1"></span>
+            <span className="line2"></span>
+            <span className="line3"></span>
+          </div>
+        </div>
     </div>
   );
 };

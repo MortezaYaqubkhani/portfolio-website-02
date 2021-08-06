@@ -2,84 +2,105 @@
   background-color: white;
   display: flex;
 
-  .left {
-    flex: 0.5;
-    overflow: hidden;
+  flex: 0.5;
+  // position: relative;
 
-    .imageContainer {
-      width: 700px;
-      height: 700px;
-      background-color: crimson;
-      border-radius: 50%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      float: right;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
 
-      img {
-        height: 100%;
+    justify-content: center;
+
+    h1 {
+      font-size: 60px;
+      margin: 10px 0;
+    }
+    h2 {
+      font-size: 35px;
+    }
+    h3 {
+      font-size: 25px;
+
+      span {
+        font-size: inherit;
+        color: crimson;
+      }
+
+      .ityped-cursor {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        60% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+
+    .right {
+      z-index: 13;
+      .hamburger {
+        position: absolute;
+        top: 40px;
+        right: 80px;
+        width: 32px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        align-items: center;
+
+        span {
+          width: 100%;
+          height: 3px;
+          background-color: rgb(46, 21, 21);
+          transform-origin: left;
+          transition: all 2s ease;
+        }
+      }
+      &.active {
+        .hamburger {
+          
+          span {
+            &:first-child {
+              background-color: black;
+              transform: rotate(45deg);
+              width: 108%;
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:last-child {
+              background-color: black;
+              transform: rotate(-45deg);
+              width: 108%;
+            }
+          }
+        }
       }
     }
   }
 
-  .right {
-    flex: 0.5;
-    position: relative;
+  a {
+    position: absolute;
+    bottom: 50px;
+    left: 40%;
 
-    .wrapper {
-      width: 100%;
-      height: 100%;
-      padding-left: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      h1 {
-        font-size: 60px;
-        margin: 10px 0;
-      }
-      h2 {
-        font-size: 35px;
-      }
-      h3 {
-        font-size: 25px;
-
-        span {
-            font-size: inherit;
-            color: crimson;
-        }
-
-        .ityped-cursor {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            60% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-            
-        }
-      }
+    img {
+      width: 30px;
+      animation: arrowBlink 2s infinite;
     }
 
-    a {
-      position: absolute;
-      bottom: 50px;
-      left: 40%;
-
-      img {
-        width: 30px;
-        animation: arrowBlink 2s infinite;
-      }
-
-      @keyframes arrowBlink {
-          100% {
-              opacity: 0;
-          }
-          
+    @keyframes arrowBlink {
+      100% {
+        opacity: 0;
       }
     }
   }

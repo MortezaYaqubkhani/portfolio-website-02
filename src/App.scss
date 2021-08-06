@@ -4,10 +4,10 @@
 
 .sections {
   width: 100%;
-  height: calc(100vh - 70px);
-  background-color: lime;
+  height: 100vh;
+  // background-color: lime;
   position: relative;
-  top: 70px;
+  top: 0px;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   // how to hide scroll bars
@@ -19,6 +19,6 @@
   > * {
     scroll-snap-align: start;
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
   }
 }

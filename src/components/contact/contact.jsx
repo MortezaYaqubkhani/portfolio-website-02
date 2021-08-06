@@ -2,20 +2,15 @@ import "./contact.scss";
 import { useState } from "react";
 
 const Contact = () => {
-  const [message, setMessage] = useState(false)
-  ;
+  const [message, setMessage] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     setMessage(true);
   };
   return (
     <div className="contact" id="contact">
-      <div className="left">
-        <img
-          src="https://hr.cornell.edu/sites/default/files/pictures/dialog.png"
-          alt="contacts"
-        />
-      </div>
+
+      <div className="left">leftside</div>
       <div className="right">
         <h2>Leave your message!</h2>
         <form onSubmit={handleSubmit}>
