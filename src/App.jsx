@@ -31,18 +31,17 @@ function App() {
     // </>
     //     <div>
 
-          <div className="app">
-            {/* <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
-            <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-            <div className="sections">
-              <Intro menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-              <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-              <Works />
-              <Testimonials />
-              <Contact />
-            </div>
-          </div>
-       
+    <div className="app">
+      {/* <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <div className="sections">
+        <Intro menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Works />
+        <Testimonials menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Contact />
+      </div>
+    </div>
   );
 }
 

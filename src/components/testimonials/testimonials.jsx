@@ -1,40 +1,57 @@
 import "./testimonials.scss";
 
-const Testimonials = () => {
+const Testimonials = ({ menuOpen, setMenuOpen }) => {
   // const [featured, setFeatured] = set
   const data = [
     {
       id: 1,
-      name: "Alex Harvey",
+      name: "General",
       title: "CEO of the harvet show",
-      img: "http://www.woman-themovie.org/wp-content/uploads/2020/02/RENOULIN_Claire-3.jpg",
+      img: "assets/generalDevelopmentIcon1.png",
       icon: "https://www.webinarwinkel.nl/wp-content/uploads/2020/04/YouTube-button.png",
-      desc: "We're in contact with US Olympic and Paralympic Committee and with World Athletics,said IOC spokesman Mark Adams on Monday. I dont want to say what those next steps would beuntil we fully understand what is going on. We dont want to pre-empt anything",
+      desc1: "•	Software Version Control, knowledge of Git.",
+      desc2:
+        "•	Experience in software Design Patterns, UML, web Frameworks and Architecture.",
+      desc3: "",
+      desc4: "",
     },
     {
       id: 2,
-      name: "Ben Awed",
+      name: "GIS Development",
       title: "CEO of the dogehouse",
-      img: "https://pbs.twimg.com/media/EytSdxXVoAUXwU5.jpg",
+      img: "assets/gisDevelopmentIcon.png",
       icon: "https://www.webinarwinkel.nl/wp-content/uploads/2020/04/YouTube-button.png",
-      desc: "We're in contact with US Olympic and Paralympic Committee and with World Athletics,said IOC spokesman Mark Adams on Monday. I dont want to say what those next steps would beuntil we fully understand what is going on. We dont want to pre-empt anything",
-      featured: true,
+      desc1: "•	Python programming and geospatial analysis with python.",
+      desc2:
+        "•	International web mapping standards and specifications (WFS, WMS, WPS, 3D tiles, 2D tiles) ",
+      desc3:
+        "•	Experience working with web map services, APIs, and JS mapping libraries (leaflet.js, Mapbox GL JS, CesiumJS, and OpenLayers",
+      desc4: "•	ArcGIS, ArcGIS pro, QGIS, ERDAS Imagine.",
     },
     {
       id: 1,
-      name: "Behanm Chamani",
+      name: "Back End Development",
       title: "CTO, Farabourse",
-      img: "https://media-exp1.licdn.com/dms/image/C5103AQGMB7Du028E8w/profile-displayphoto-shrink_200_200/0/1517442611049?e=1632355200&v=beta&t=B4JBGTxFqXOA28re-cF5JyPb1O8E6dtva6An9XeFEpI",
+      img: "assets/backendIcon.png",
       icon: "https://www.webinarwinkel.nl/wp-content/uploads/2020/04/YouTube-button.png",
-      desc: "We're in contact with US Olympic and Paralympic Committee and with World Athletics,said IOC spokesman Mark Adams on Monday. I dont want to say what those next steps would beuntil we fully understand what is going on. We dont want to pre-empt anything",
+      desc1: "•	Node.js & Express JS,)",
+      desc2: "• REST APIs & AJAX",
+      desc3:
+        "•	Working knowledge of relational databases (PostgreSQL) and non relational databases (MongoDB) ",
+      desc4:
+        "•	Data Science, Machine learning with Python ( libraries such as NumPy, SciPy, Pandas, GeoPandas, SciKit-Learn, Matplotlib, Seaborn, and PySAL)",
     },
     {
       id: 1,
-      name: "Fateme",
+      name: "Front End Development",
       title: "Finance, IFIG",
-      img: "https://thumbs.dreamstime.com/b/female-avatar-icon-flat-style-female-user-icon-cartoon-woman-avatar-pink-hair-vector-stock-91462795.jpg",
+      img: "assets/frontEndIcon.png",
       icon: "https://www.webinarwinkel.nl/wp-content/uploads/2020/04/YouTube-button.png",
-      desc: "We're in contact with US Olympic and Paralympic Committee and with World Athletics,said IOC spokesman Mark Adams on Monday. I dont want to say what those next steps would beuntil we fully understand what is going on. We dont want to pre-empt anything",
+      desc1: "•	Good knowledge of JavaScript (ES6), ",
+      desc2: "• HTML, CSS",
+      desc3: "• React JS, Bootstrap, jQuery, and Ext JS",
+      desc4:
+        "• Experience data visualization with D3.js (Data-driven documents) ",
     },
   ];
   return (
@@ -42,23 +59,37 @@ const Testimonials = () => {
       <h1>Testimonials</h1>
       <div className="container">
         {data.map((d) => (
-          <div className={ d.featured? "card featured" : "card"}>
+          <div className={d.featured ? "card featured" : "card"}>
             <div className="top">
-              <img
-                className="left"
-                src="https://cpng.pikpng.com/pngl/s/410-4104194_arc-diagram-transprent-png-free-download-angle-arrow.png"
-                alt="arrow"
-              />
-              <img className="user" src={d.img} alt="personPic" />
-              <img className="right" src={d.icon} alt="youTube" />
+              <img className="left" src={d.img} alt="arrow" />
+              {/* <img className="user" src={d.img} alt="personPic" />
+              <img className="right" src={d.icon} alt="youTube" /> */}
             </div>
-            <div className="center">{d.desc}</div>
             <div className="bottom">
               <h3>{d.name}</h3>
               <h4>{d.title}</h4>
             </div>
+            <div className="center">
+              {d.desc1}
+              <br />
+              {d.desc2}
+              <br />
+              {d.desc3}
+              <br />
+              {d.desc4}
+            </div>
           </div>
         ))}
+      </div>
+      <div
+        className={"right " + (menuOpen && "active")}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <div className="hamburger">
+          <span className="line1"></span>
+          <span className="line2"></span>
+          <span className="line3"></span>
+        </div>
       </div>
     </div>
   );

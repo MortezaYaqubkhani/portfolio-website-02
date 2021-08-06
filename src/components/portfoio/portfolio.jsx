@@ -43,9 +43,6 @@ const Portfolio = ({ menuOpen, setMenuOpen }) => {
   }, [selected]);
   return (
     <div className="portfolio" id="portfolio">
-      
-
-      
       <h1>Portfolio</h1>
       <ul>
         {list.map((item) => (
@@ -66,15 +63,15 @@ const Portfolio = ({ menuOpen, setMenuOpen }) => {
         ))}
       </div>
       <div
-          className={"right " + (menuOpen && "active")}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <div className="hamburger">
-            <span className="line1"></span>
-            <span className="line2"></span>
-            <span className="line3"></span>
-          </div>
+        className={"right " + (menuOpen && "active")}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <div className="hamburger">
+          <span className="line1"></span>
+          <span className="line2"></span>
+          <span className="line3"></span>
         </div>
+      </div>
     </div>
   );
 };
