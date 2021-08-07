@@ -14,6 +14,7 @@ import React, { Component } from "react";
 import Particle from "react-particles-js";
 import particlesConfig from "./assets/particlesConfig.json";
 import "./assets/styles.css";
+import Resume from "./components/resume/resume";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ function App() {
       <div className="sections">
         <Intro menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Works />
+        <Resume menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Testimonials menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Contact />
       </div>

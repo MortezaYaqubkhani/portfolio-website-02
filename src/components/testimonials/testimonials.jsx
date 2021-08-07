@@ -56,7 +56,7 @@ const Testimonials = ({ menuOpen, setMenuOpen }) => {
   ];
   return (
     <div className="testimonials" id="testimonials">
-      <h1>Testimonials</h1>
+      <h1>Skills</h1>
       <div className="container">
         {data.map((d) => (
           <div className={d.featured ? "card featured" : "card"}>
@@ -66,8 +66,8 @@ const Testimonials = ({ menuOpen, setMenuOpen }) => {
               <img className="right" src={d.icon} alt="youTube" /> */}
             </div>
             <div className="bottom">
-              <h3>{d.name}</h3>
-              <h4>{d.title}</h4>
+              <h4>{d.name}</h4>
+              <h5>{d.title}</h5>
             </div>
             <div className="center">
               {d.desc1}
