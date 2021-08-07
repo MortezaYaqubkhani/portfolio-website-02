@@ -7,40 +7,21 @@ import Testimonials from "./components/testimonials/testimonials";
 import Contact from "./components/contact/contact";
 import { useState } from "react";
 import Menu from "./components/menu/menu";
-import ParticlesComponent from "./components/particles/particles";
-// import Particles from "react-particles-js";
-import { tsParticles } from "tsparticles";
-import React, { Component } from "react";
-import Particle from "react-particles-js";
-import particlesConfig from "./assets/particlesConfig.json";
+import React from "react";
 import "./assets/styles.css";
 import Resume from "./components/resume/resume";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    // <>
-    //   <Particle params={particlesConfig} className="App-particles__container" />
-    //   <div className="App">
-    //     <div className="App-text">
-    //       <h1 className="App-text__title">Pathetic Geek</h1>
-    //       <h2 className="App-text__body">
-    //         I am a full stack web and mobile developer
-    //       </h2>
-    //     </div>
-    //   </div>
-    // </>
-    //     <div>
-
     <div className="app">
-      {/* <TopBar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="sections">
         <Intro menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Resume menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        {/* <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
         <Testimonials menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Contact />
+        <Resume menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Contact menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
       </div>
     </div>
   );
