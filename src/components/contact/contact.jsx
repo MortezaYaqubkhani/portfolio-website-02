@@ -17,114 +17,82 @@ const Contact = ({ menuOpen, setMenuOpen }) => {
     <div className="mainContact" id="contact">
       <div className="contactTitle">
         <h1>Contact</h1>
-        <div>
-          <form action=""></form>
+      </div>
+      <div className="contact-grid">
+        <div className="aboutMe">
+          <img src="assets/mypic.png" alt="avatar" />
+          <p>
+            Highly interested in processing, analyzing, and visualizing huge
+            amounts of spatial and non spatial information on the web, I have
+            some experience creating geo web services and building applications
+            using different mapping libraries and web technologies. Constantly
+            looking forward to increase my knowledge in web development.
+          </p>
+          <a href="https://yaqubkhani.com/cv/yaqubkhani_CV.pdf">
+            <img
+              style={{ height: "40px", border: "none" }}
+              src="assets/downloadCV.png"
+              alt="CV"
+            />
+          </a>
+        </div>
+        <div className="contactMe">
+          <form
+            action="https://formsubmit.co/yaqubkhani.m@gmail.com"
+            method="POST"
+            className="contactForm"
+          >
+            <input
+              type="hidden"
+              name="_next"
+              value="https://google.com"
+            ></input>
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Your name.."
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              id="subject"
+              name="subject"
+              placeholder="Write something.."
+              style={{ height: "170px" }}
+              required
+            ></textarea>
+            <br />
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
-      <Grid className="contact-grid">
-        <Cell col={6} className="aboutMe">
-          <h3>About Me</h3>
-
-          <img
-            src="assets/mypic.png"
-            alt="avatar"
-            style={{ height: "250px" }}
-          />
-          <div
-            style={{
-              width: "80%",
-              margin: "auto",
-              paddingTop: "1em",
-              fontSize: "15px",
-              fontFamily: "Anton",
-            }}
-          >
-            <span>
-              Highly interested in processing, analyzing, and visualizing huge
-              amounts of spatial and non spatial information on the web, I have
-              some experience creating geo web services and building
-              applications using different mapping libraries and web
-              technologies. Constantly looking forward to increase my knowledge
-              in web development.
-            </span>
-          </div>
-        </Cell>
-        <Cell col={6} className="contactMe">
-          <h3>Contact Me</h3>
-          <div className="contact-list">
-            <form
-              action="https://formsubmit.co/yaqubkhani.m@gmail.com"
-              method="POST"
-              className="contactForm"
-            >
-              <input
-                type="hidden"
-                name="_next"
-                value="https://google.com"
-              ></input>
-              <input
-                type="text"
-                id="fname"
-                name="firstname"
-                placeholder="Your name.."
-                required
-              />
-              <hr />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <br />
-              <textarea
-                id="subject"
-                name="subject"
-                placeholder="Write something.."
-                style={{ height: "170px" }}
-                required
-              ></textarea>
-              <br />
-              <button type="submit">Submit</button>
-            </form>
-          </div>
-        </Cell>
-      </Grid>
-      <div
-        className="contactIcons"
-        style={{
-          width: "75%",
-          margin: "auto",
-          paddingTop: "1em",
-          fontSize: "13px",
-          fontFamily: "Anton",
-          fontWeight: "bold",
-        }}
-      >
-        <span>
-          <FontAwesomeIcon
-            icon={faMapMarkerAlt}
-            size="2x"
-            color="blue"
-            style={{ paddingLeft: "0rem", paddingRight: "1rem" }}
-          />
-          Enschede, Netherlands
-        </span>
-        <span>
-          <FontAwesomeIcon
-            icon={faSkype}
-            size="2x"
-            color="blue"
-            style={{ paddingLeft: "3rem", paddingRight: "1rem" }}
-          />
-          morteza
-        </span>
+      <div className="contactIcons">
+        <FontAwesomeIcon
+          icon={faMapMarkerAlt}
+          size="2x"
+          color="black"
+          style={{ paddingLeft: "0rem", paddingRight: "1rem" }}
+        />
+        Enschede, Netherlands
+        <FontAwesomeIcon
+          icon={faSkype}
+          size="2x"
+          color="black"
+          style={{ paddingLeft: "3rem", paddingRight: "1rem" }}
+        />
+        mortezayg
         <a href="mailto:yaqubkhani.m@gmail.com">
           <FontAwesomeIcon
             icon={faEnvelope}
             size="2x"
-            color="blue"
+            color="black"
             style={{ paddingLeft: "3rem", paddingRight: "1rem" }}
           />
         </a>
@@ -132,7 +100,7 @@ const Contact = ({ menuOpen, setMenuOpen }) => {
           <FontAwesomeIcon
             icon={faLinkedin}
             size="2x"
-            color="blue"
+            color="black"
             style={{ paddingLeft: "3rem", paddingRight: "1rem" }}
           />
         </a>
@@ -140,7 +108,7 @@ const Contact = ({ menuOpen, setMenuOpen }) => {
           <FontAwesomeIcon
             icon={faGithub}
             size="2x"
-            color="blue"
+            color="black"
             style={{ paddingLeft: "3rem", paddingRight: "1rem" }}
           />
         </a>

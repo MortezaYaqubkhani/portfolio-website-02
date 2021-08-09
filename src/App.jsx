@@ -18,7 +18,7 @@ function App() {
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="sections">
         <Intro menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        {/* <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+        <Portfolio menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Testimonials menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Resume menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Contact menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
